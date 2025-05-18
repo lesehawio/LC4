@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medal Awards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #F2F6FF;
+      color: #012060;
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: #FD3131;
+    }
+    input, button {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+    .medal-box {
+      margin-top: 30px;
+      padding: 20px;
+      border: 2px dashed #01206077;
+      border-radius: 20px;
+      background-color: #ffffffcc;
+      display: inline-block;
+    }
+    .medal {
+      font-size: 2rem;
+      margin-top: 10px;
+      color: #FD3131;
+    }
+    .medal-name {
+      font-weight: bold;
+      margin-top: 5px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎖️ Medal Award System</h1>
+
+  <p>Enter your XP to see your medal:</p>
+
+  <input type="number" id="xpInput" placeholder="Enter your XP" min="0" />
+  <button onclick="showMedal()">Check Medal</button>
+
+  <div class="medal-box" id="medalBox">
+    <p>No medal yet 🌱</p>
+  </div>
+
+  <script>
+    function showMedal() {
+      const xp = parseInt(document.getElementById("xpInput").value);
+      const medalBox = document.getElementById("medalBox");
+
+      let medal = "";
+      let name = "";
+
+      if (xp < 10) {
+        medal = "🌱";
+        name = "Seedling";
+      } else if (xp < 30) {
+        medal = "🌼";
+        name = "Fresh Bloom";
+      } else if (xp < 50) {
+        medal = "🎀";
+        name = "Pink Ribbon";
+      } else if (xp < 80) {
+        medal = "🎯";
+        name = "Focused Star";
+      } else if (xp < 120) {
+        medal = "💎";
+        name = "Crystal Mind";
+      } else if (xp < 170) {
+        medal = "👑";
+        name = "Queen of Focus";
+      } else if (xp < 220) {
+        medal = "🦋";
+        name = "Transformation Hero";
+      } else {
+        medal = "🌟";
+        name = "Supreme Scholar";
+      }
+
+      medalBox.innerHTML = `
+        <div class="medal">${medal}</div>
+        <div class="medal-name">${name}</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
